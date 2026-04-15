@@ -1,0 +1,40 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\title{Pseudocode for Data Cleaning Step}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{algorithm}
+\caption{Crop Feature Engineering}
+\begin{algorithmic}[1]
+\State $D_{\text{noNA}} \gets$ remove all rows in $D_{\text{soil}}$ that contain missing values
+\State $D_{\text{noOutlier}} \gets$ remove outliers in $D_{\text{noNA}}$ using Z-score filtering
+\State $D_{\text{clean}} \gets \pi_{N, P, K, \text{pH}}(D_{\text{noOutlier}})$ \Comment{Project onto the soil-related features}
+\State $(D_{\text{train}}, D_{\text{val}}, D_{\text{test}}) \gets \Call{randomSplit}{D_{\text{clean}}, 0.8, 0.1, 0.1}$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{table}[h]
+\centering
+\caption{Summary of crop data cleaning results}
+\begin{tabular}{|l|r|}
+\hline
+\textbf{Metric} & \textbf{Value} \\
+\hline
+Original rows & 2200 \\
+Rows removed for missing values & 0 \\
+Rows removed as outliers ($|z| > 3.00$) & 171 \\
+Final cleaned rows & 2029 \\
+\hline
+\end{tabular}
+\end{table}
+
+\end{document}

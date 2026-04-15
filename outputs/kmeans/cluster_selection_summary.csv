@@ -1,0 +1,4 @@
+method,recommended_k,selection_reason
+elbow,4,maximum curvature heuristic
+silhouette,2,highest silhouette score
+final,2,"elbow and silhouette disagreed, so the silhouette peak was used"

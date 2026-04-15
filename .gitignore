@@ -1,2 +1,11 @@
 # Ignore suupplementary pdf files
 additional_materials/
+data/*.csv
+
+# Ignore pdflatex output files
+*.aux
+*.log
+*.out
+
+# Ignore cache
+__pycache__/
